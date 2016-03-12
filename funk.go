@@ -46,3 +46,10 @@ func ToCurve(f Funk, min, max, res float64) Curve {
 
 	return c
 }
+
+// Tnen returns a new Funk that calls n on the result of f
+func (f Funk) Then(n Funk) Funk {
+	return func(x float64) float64 {
+		return f(n(x))
+	}
+}

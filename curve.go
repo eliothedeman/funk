@@ -10,7 +10,8 @@ type Curve []Point
 
 // A Point is an X,Y pair which desribes the location of a point on a graph
 type Point struct {
-	X, Y float64
+	X float64 `json:"x"`
+	Y float64 `json:"y"`
 }
 
 // FailFunk returns NaN no matter what is passed in.

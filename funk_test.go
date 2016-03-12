@@ -83,6 +83,25 @@ func TestMult(t *testing.T) {
 	})
 }
 
+func TestThen(t *testing.T) {
+
+	Convey("Given a Funk that multipies it's input by 2", t, func() {
+		a := Funk(func(f float64) float64 {
+			return f * 2
+		})
+		Convey("When a is succeeded by a Funk that devides x by 2", func() {
+			f := a.Then(func(x float64) float64 {
+				return x / 2
+
+			})
+
+			Convey("Then calling f on any input should return the same value", func() {
+				So(f(100), ShouldEqual, 100)
+			})
+		})
+	})
+}
+
 func TestToCurve(t *testing.T) {
 
 	Convey("Given a func 'a' that multiples x by 2", t, func() {
