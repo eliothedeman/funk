@@ -1,4 +1,4 @@
-# Funk [![Build Status](https://travis-ci.org/eliothedeman/funk.svg?branch=master)](https://travis-ci.org/eliothedeman/funk)
+# Funk [![Build Status](https://travis-ci.org/eliothedeman/funk.svg?branch=master)](https://travis-ci.org/eliothedeman/funk) [![Coverage Status](https://coveralls.io/repos/github/eliothedeman/funk/badge.svg?branch=master)](https://coveralls.io/github/eliothedeman/funk?branch=master)
 Do arithmetic on functions. Treat slices like functions. Do what ever you want.
 
 ### Add functions together
