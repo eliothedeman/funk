@@ -124,3 +124,48 @@ func TestToCurve(t *testing.T) {
 
 	})
 }
+
+func TestPipe(t *testing.T) {
+	Convey("Given two functions a, b", t, func() {
+		a := func(x float64) float64 {
+			return x * 2
+		}
+
+		b := func(x float64) float64 {
+			return x * 5
+		}
+
+		Convey("When the two functions are linked together via Pipe into c", func() {
+			c := Funk(a).Pipe(b)
+
+			Convey("Then the output of c should equal b(a)", func() {
+
+				So(c(5), ShouldEqual, b(a(5)))
+			})
+		})
+	})
+}
+
+func TestPipeFunk(t *testing.T) {
+	Convey("Given three functions a, b, c", t, func() {
+		a := func(x float64) float64 {
+			return x * 2
+		}
+
+		b := func(x float64) float64 {
+			return x * 5
+		}
+
+		c := func(x float64) float64 {
+			return x / 100
+		}
+		Convey("When the three functions are linked together via Pipe into d", func() {
+			d := Pipe(a, b, c)
+
+			Convey("Then the output of d should equal c(b(a))", func() {
+
+				So(d(5), ShouldEqual, c(b(a(5))))
+			})
+		})
+	})
+}

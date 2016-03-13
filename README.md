@@ -47,3 +47,23 @@ newFunk := newCurve.ToFunk()
 // Now the new function will approxomate the original
 f(x) =~ newFunk(x)
 ```
+
+### Pipe functions together
+This will run each function in it's own goroutine.
+```go
+a := func(x float64) float64 {
+	return x * 2
+}
+
+b := func(x float64) float64 {
+	return x * 5
+}
+
+c := func(x float64) float64 {
+	return x / 100
+}
+
+d := Pipe(a, b, c)
+
+c(b(a(5))) == d(5)
+```
