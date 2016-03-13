@@ -1,6 +1,7 @@
 package funk
 
 import (
+	"math"
 	"testing"
 
 	. "github.com/smartystreets/goconvey/convey"
@@ -166,6 +167,13 @@ func TestPipeFunk(t *testing.T) {
 
 				So(d(5), ShouldEqual, c(b(a(5))))
 			})
+
+			Convey("Then an empty pipe should always return NaN", func() {
+				x := Pipe()
+				So(math.IsNaN(x(5)), ShouldBeTrue)
+			})
 		})
+
 	})
+
 }
