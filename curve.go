@@ -1,3 +1,4 @@
+// Package funk allows you to do dumb things with functions.
 package funk
 
 import (
