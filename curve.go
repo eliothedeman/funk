@@ -72,7 +72,7 @@ func (c Curve) ValAt(x float64) float64 {
 
 	}
 
-	y := math.NaN()
+	y := 0.0
 	for i := 1; i < len(c); i++ {
 		if x <= c[i].X {
 			if c[i].X == x {
